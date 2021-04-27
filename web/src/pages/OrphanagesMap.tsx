@@ -1,8 +1,10 @@
 import mapMakerImg from '../images/map-marker.svg';
 import {Link} from 'react-router-dom';
 import {FiPlus} from 'react-icons/fi';
+import {MapContainer, TileLayer} from 'react-leaflet';
 
 import '../styles/pages/orphanages-map.css';
+import 'leaflet/dist/leaflet.css'
 
 function OrphanagesMap() {
   return (
@@ -21,9 +23,15 @@ function OrphanagesMap() {
         </footer>
       </aside>
 
-      <div></div>
+      <MapContainer 
+        center={[-16.6799799,-49.2577286]}
+        zoom={15}
+        style={{width: '100%', height: '100%'}}
+      >
+        <TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      </MapContainer>
 
-      <Link to="" className="create-orphanage">
+      <Link to="/map" className="create-orphanage">
         <FiPlus size={32} color="#ffff" />
       </Link>
     </div>
